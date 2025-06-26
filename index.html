@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EnTRADEpreneur - Empower Your Future</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --gold: #bfa12d;
+      --black: #1a1a1a;
+      --white: #fff;
+      --gray: #f6f6f6;
+      --accent: #ffe066;
+      --transition: all 0.3s cubic-bezier(.4,0,.2,1);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--gray);
+      color: var(--black);
+    }
+    header {
+      background: linear-gradient(105deg, var(--black) 65%, var(--gold));
+      color: var(--white);
+      text-align: center;
+      padding: 5rem 2rem 3rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    header img.logo {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 1.3rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(191,161,45,0.12);
+      border: 2.5px solid var(--gold);
+      transition: transform 0.2s;
+    }
+    header img.logo:hover {
+      transform: scale(1.08) rotate(-3deg);
+      box-shadow: 0 10px 32px rgba(191,161,45,0.22);
+    }
+    header h1 {
+      font-size: 2.6rem;
+      margin-bottom: 0.4rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+      z-index: 1;
+      position: relative;
+    }
+    header p {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      z-index: 1;
+      position: relative;
+    }
+    .cta-buttons {
+      z-index: 1; position: relative;
+    }
+    .cta-buttons a {
+      display: inline-block;
+      margin: 0.5rem 1rem;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(90deg, var(--gold), var(--accent));
+      color: var(--black);
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 8px 32px rgba(191, 161, 45, 0.15);
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+    .cta-buttons a:hover {
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 16px 32px rgba(191, 161, 45, 0.22);
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--white);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+      display: flex;
+      justify-content: center;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      display: flex;
+      gap: 2rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--black);
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
+      transition: var(--transition);
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: var(--gold);
+      transition: var(--transition);
+      margin: 2px auto 0 auto;
+    }
+    nav a:hover, nav a.active {
+      color: var(--gold);
+    }
+    nav a:hover::after, nav a.active::after {
+      width: 70%;
+    }
+    main {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 2rem 1.5rem;
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+      transform: translateY(-70px);
+      position: relative;
+      z-index: 2;
+    }
+    section {
+      margin-bottom: 3.5rem;
+      animation: fadein 1.2s ease;
+    }
+    section:last-child {
+      margin-bottom: 0;
+    }
+    section h2 {
+      color: var(--gold);
+      font-size: 2rem;
+      margin-bottom: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .highlight {
+      color: var(--gold);
+      font-weight: bold;
+    }
+    ul {
+      padding-left: 1.4rem;
+    }
+    .perfume-flex {
+      display: flex;
+      align-items: flex-start;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .perfume-flex img {
+      width: 180px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 8px 16px rgba(191, 161, 45, 0.10);
+      border: 2px solid #fffbe9;
+      background: #fcf7ed;
+      margin-bottom: 1rem;
+      transition: transform 0.2s;
+    }
+    .perfume-flex img:hover {
+      transform: scale(1.04) rotate(-2deg);
+      box-shadow: 0 16px 40px rgba(191,161,45,0.19);
+    }
+    .perfume-content {
+      flex: 1 1 260px;
+      min-width: 230px;
+    }
+    .income-table, .insurance-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.1rem 0;
+      background: #faf8ef;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .income-table th, .income-table td, .insurance-table th, .insurance-table td {
+      border: 1px solid #ececec;
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+    }
+    .income-table th, .insurance-table th {
+      background: var(--gold);
+      color: var(--black);
+      font-weight: 700;
+    }
+    form {
+      background: #f5f3e7;
+      padding: 2rem 1rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(191, 161, 45, 0.07);
+      max-width: 480px;
+      margin: 1rem auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    label {
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      color: #222;
+    }
+    input[type="text"], input[type="email"] {
+      padding: 0.7rem;
+      border-radius: 6px;
+      border: 1px solid #dadada;
+      font-size: 1rem;
+      background: #fffbe9;
+      margin-top: 0.2rem;
+      width: 100%;
+      transition: box-shadow 0.2s;
+    }
+    input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 5px var(--gold);
+      outline: none;
+    }
+    button[type="submit"] {
+      background: linear-gradient(90deg, var(--gold), var(--accent));
+      color: var(--black);
+      border: none;
+      border-radius: 30px;
+      padding: 0.9rem 1.8rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 0.8rem;
+      box-shadow: 0 4px 16px rgba(191, 161, 45, 0.11);
+    }
+    button[type="submit"]:hover {
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+      transform: translateY(-2px) scale(1.03);
+    }
+    .testimonial-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 1rem 0 0 0;
+    }
+    .testimonial {
+      background: #fafff4;
+      border-left: 5px solid var(--gold);
+      padding: 1.1rem 1.5rem;
+      border-radius: 10px;
+      font-style: italic;
+      box-shadow: 0 2px 8px rgba(191, 161, 45, 0.06);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .contact-links a {
+      color: var(--gold);
+      font-weight: 600;
+      text-decoration: none;
+      margin: 0 0.7rem;
+      transition: color 0.2s;
+    }
+    .contact-links a:hover {
+      color: #fffbe9;
+      background: var(--gold);
+      padding: 0.1rem 0.6rem;
+      border-radius: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 1rem 1rem;
+      background: var(--black);
+      color: var(--white);
+      font-size: 1rem;
+      border-radius: 0 0 20px 20px;
+      margin: 2rem auto 0 auto;
+      max-width: 950px;
+    }
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(40px);}
+      to   { opacity: 1; transform: translateY(0);}
+    }
+    @media (max-width: 900px) {
+      main {
+        padding: 1.2rem 0.2rem;
+        border-radius: 0;
+      }
+      header {
+        padding: 3rem 0.5rem 2rem 0.5rem;
+      }
+      nav ul { gap: 1rem;}
+      section h2 { font-size: 1.3rem; }
+      .perfume-flex { flex-direction: column; align-items: center; }
+      .perfume-flex img { margin-bottom: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="EnTRADEpreneur Logo" class="logo" />
+    <h1>EnTRADEpreneur</h1>
+    <p>Empowering Everyday Entrepreneurs</p>
+    <div class="cta-buttons">
+      <a href="#join">Start Free</a>
+      <a href="#programs">Explore Programs</a>
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#perfume">Perfume</a></li>
+      <li><a href="#insurance">Insurance</a></li>
+      <li><a href="#signals">Trading</a></li>
+      <li><a href="#income">Income</a></li>
+      <li><a href="#testimonials">Feedback</a></li>
+      <li><a href="#join">Join</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <main id="programs">
+    <section id="perfume">
+      <h2>🌸 Perfume Reseller Program</h2>
+      <div class="perfume-flex">
+        <img src="perfume.jpg" alt="EnTRADEpreneur Perfume" />
+        <div class="perfume-content">
+          <p>Earn with high-quality perfume reselling. Enjoy a <span class="highlight">28% lifetime discount</span> as a member. Every purchase earns:</p>
+          <ul>
+            <li><span class="highlight">₱10</span> per bottle from your own purchases</li>
+            <li><span class="highlight">₱5</span> per bottle from your first-level indirect purchases</li>
+          </ul>
+          <p>All products are sourced from legal suppliers with proven quality.</p>
+        </div>
+      </div>
+    </section>
+    <section id="insurance">
+      <h2>🛡️ Insurance Benefits</h2>
+      <p>Get covered with our built-in member insurance plan:</p>
+      <table class="insurance-table">
+        <tr><th>Coverage Type</th><th>Amount</th></tr>
+        <tr><td>Accidental Death</td><td>₱20,000</td></tr>
+        <tr><td>Dismemberment & Disablement</td><td>₱20,000</td></tr>
+        <tr><td>Assault Coverage</td><td>₱10,000</td></tr>
+        <tr><td>Burial Assistance</td><td>₱2,000</td></tr>
+        <tr><td>Daily Hospital Income</td><td>₱100/day (up to 7 days)</td></tr>
+        <tr><td>Emergency Hospitalization</td><td>₱1,000</td></tr>
+        <tr><td><strong>Total Potential Coverage</strong></td><td><strong>₱53,700</strong></td></tr>
+      </table>
+      <p><strong>Bonus:</strong> Earn ₱10 per bottle you purchase and ₱5 for each bottle your first-level referral buys.</p>
+    </section>
+    <section id="signals">
+      <h2>📈 Trading Education & Signal Service</h2>
+      <p><strong>EnTRADEpreneur</strong> offers professional trading signals designed to teach members how to trade safely and independently.</p>
+      <ul>
+        <li>10–32 real-time trading signals/week</li>
+        <li>Includes Entry Price, Stop Loss, TP1–TP5</li>
+        <li>Live market analysis, suited for Binance/OKX</li>
+        <li>Risk management taught (5–10% per trade, 2x–5x leverage)</li>
+        <li>Target returns: 20–60% monthly (market dependent)</li>
+      </ul>
+      <p><strong>Pricing:</strong> ₱1,000/week (non-members) • ₱500/week (members)<br />
+      New members get <span class="highlight">1 free week</span> after joining.</p>
+      <p class="highlight">Note: This is not financial advice. We do not manage funds.</p>
+    </section>
+    <section id="income">
+      <h2>💸 Income Opportunities</h2>
+      <p>Earn by sharing our platform. Referral bonuses include:</p>
+      <ul>
+        <li><strong>₱200</strong> per direct member</li>
+        <li><strong>₱100</strong> per indirect member</li>
+        <li><strong>₱50–₱100</strong> per weekly resubscription</li>
+      </ul>
+      <p><strong>Sample Scenario:</strong></p>
+      <table class="income-table">
+        <tr><th>Source</th><th>Members</th><th>Rate</th><th>Total</th></tr>
+        <tr><td>Direct</td><td>10</td><td>₱50</td><td>₱500</td></tr>
+        <tr><td>Indirect</td><td>10</td><td>₱100</td><td>₱1,000</td></tr>
+        <tr><td><strong>Total</strong></td><td></td><td></td><td><strong>₱1,500/week</strong></td></tr>
+      </table>
+    </section>
+    <section id="testimonials">
+      <h2>❤️ What Our Members Say</h2>
+      <div class="testimonial-list">
+        <div class="testimonial">“The mix of perfume selling and trading signals is so smart!”</div>
+        <div class="testimonial">“Easy to follow, and the insurance adds real value.”</div>
+        <div class="testimonial">“I started earning in my first week — even without prior experience.”</div>
+      </div>
+    </section>
+    <section id="join">
+      <h2>🚀 Join Now</h2>
+      <form onsubmit="event.preventDefault(); alert('Thank you for joining! We will contact you soon.');">
+        <label>Name:<br /><input type="text" name="name" required /></label>
+        <label>Email:<br /><input type="email" name="email" required /></label>
+        <label>Contact Number:<br /><input type="text" name="contact" required /></label>
+        <label>Referral Code (optional):<br /><input type="text" name="referral" /></label>
+        <button type="submit">Start with Free 1-Week Signal Access</button>
+      </form>
+    </section>
+    <section id="contact">
+      <h2>📬 Contact Us</h2>
+      <p>Email: <a href="mailto:info@entradepreneur.com">info@entradepreneur.com</a></p>
+      <div class="contact-links">
+        <a href="#" title="Telegram">Telegram</a> | 
+        <a href="#" title="Discord">Discord</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 EnTRADEpreneur. All rights reserved.</p>
+    <p>Disclaimer: Crypto trading involves risk. This is not investment advice.</p>
+  </footer>
+  <script>
+    // Highlight nav link on scroll
+    const sections = document.querySelectorAll('main section');
+    const navLinks = document.querySelectorAll('nav a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (window.pageYOffset >= sectionTop) current = section.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+      });
+    });
+    // Smooth scroll for nav links (optional for older browsers)
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (this.hash) {
+          e.preventDefault();
+          document.querySelector(this.hash).scrollIntoView({behavior:'smooth'});
+        }
+      });
+    });
+  </script>
+</body>
+</html>
